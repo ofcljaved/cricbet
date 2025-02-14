@@ -1,18 +1,17 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Header } from "@/components/header";
 import { Glow, GlowArea } from "@/components/glow";
 import { dummyPredictions } from "@/lib/demo";
+import Link from "next/link";
 
-export default function Home() {
+export default function Page() {
     return (
-        <div>
-            <Header />
-            <GlowArea size={200}>
-                <main className="flex-1 container py-6">
-                    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                        {dummyPredictions.map((d) => (
-                            <Glow key={d.id} className="rounded-xl">
+        <GlowArea size={200}>
+            <main className="flex-1 container py-6">
+                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    {dummyPredictions.map((d) => (
+                        <Link key={d.id} href={`/event`}>
+                            <Glow className="rounded-xl">
                                 <Card className="h-full">
                                     <CardHeader>
                                         <CardTitle className="flex items-start justify-between gap-4">
@@ -36,11 +35,11 @@ export default function Home() {
                                     </CardFooter>
                                 </Card>
                             </Glow>
-                        ))}
-                    </div>
-                </main>
-            </GlowArea>
-        </div>
+                        </Link>
+                    ))}
+                </div>
+            </main>
+        </GlowArea>
     )
 }
 
