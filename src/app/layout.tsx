@@ -13,8 +13,11 @@ const inter = Inter({ subsets: ["latin"] })
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en" suppressHydrationWarning>
+            <head>
+                <script src="https://unpkg.com/react-scan/dist/auto.global.js" async />
+            </head>
             <body
-                className={`${inter.className} antialiased bg-gradient-to-r from-gray-700 to-black min-h-dvh`}
+                className={`${inter.className} antialiased bg-gradient-to-tr dark:from-black from-gray-100 to-background min-h-dvh`}
             >
                 <Providers>
                     {children}
