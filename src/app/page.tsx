@@ -7,8 +7,8 @@ import Link from "next/link";
 export default function Page() {
     return (
         <GlowArea size={200}>
-            <main className="flex-1 container py-6">
-                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <main className="flex-1 container p-3 sm:p-6">
+                <div className="grid gap-2 sm:gap-4 lg:gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     {dummyPredictions.map((d) => (
                         <Link key={d.id} href={`/event`}>
                             <Glow className="rounded-xl">
