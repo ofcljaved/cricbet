@@ -1,5 +1,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 const swapTabs = [
     { id: "buy", title: "Buy", },
@@ -14,17 +16,23 @@ export const Swap = () => {
                 "*:px-0 *:pb-2 *:text-base *:rounded-none *:border-b-2 *:border-transparent *:-mb-0.5",
             )}>
                 {swapTabs.map((t) => (
-                    <TabsTrigger 
-                        key={t.id} 
-                        value={t.id} 
+                    <TabsTrigger
+                        key={t.id}
+                        value={t.id}
                         className="data-[state=active]:shadow-none data-[state=active]:border-primary"
                     >
                         {t.title}
                     </TabsTrigger>
                 ))}
             </TabsList>
-            <TabsContent value="buy">
-                <p>Buy</p>
+            <TabsContent value="buy" className="p-4">
+                <Button>Yes</Button>
+                <Button>No</Button>
+                <div>
+                    <label>Amount</label>
+                    <Input type="number" placeholder="0.00" className="w-full" />
+                </div>
+                <Button>Trade</Button>
             </TabsContent>
             <TabsContent value="sell">
                 <p>Sell</p>
