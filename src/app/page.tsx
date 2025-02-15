@@ -10,7 +10,7 @@ export default function Page() {
             <main className="flex-1 container p-3 sm:p-6">
                 <div className="grid gap-2 sm:gap-4 lg:gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     {dummyPredictions.map((d) => (
-                        <Link key={d.id} href={`/event`}>
+                        <Link key={d.id} href={`/event/${d.id}`}>
                             <Glow className="rounded-xl">
                                 <Card className="h-full">
                                     <CardHeader>
