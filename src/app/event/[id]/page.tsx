@@ -16,9 +16,9 @@ export default async function Page({
     }
 
     return (
-        <div className="h-full max-w-screen-xl mx-auto w-full p-8 grid grid-cols-1 grid-flow-col">
+        <div className="relative h-full max-w-screen-xl mx-auto w-full p-8 grid grid-cols-1 lg:grid-flow-col pb-16">
             <div>
-                <h1 className="text-4xl font-bold">{prediction?.title}</h1>
+                <h1 className="text-lg sm:text-2xl lg:text-4xl font-bold">{prediction?.title}</h1>
                 <Chart />
             </div>
             <Swap />

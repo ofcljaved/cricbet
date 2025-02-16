@@ -8,7 +8,7 @@ import { toast } from "sonner"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 
-export function WalletConnect() {
+export function WalletConnect({text}: {text?: string}) {
   const { connected, publicKey, disconnect } = useWallet()
   const { setVisible } = useWalletModal()
   const [balance, setBalance] = useState<number>(0)
@@ -19,7 +19,7 @@ export function WalletConnect() {
         onClick={() => setVisible(true)}
         className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70"
       >
-        Connect Wallet
+        {text || "Connect Wallet"}
       </Button>
     )
   }

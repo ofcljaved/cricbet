@@ -2,14 +2,17 @@ import './globals.css'
 import { Providers } from '@/app/_provider'
 import { Header } from '@/components/header';
 import { Toaster } from '@/components/ui/sonner';
-import { Inter } from "next/font/google"
+import { IBM_Plex_Mono } from "next/font/google"
 
 export const metadata = {
     title: 'Cricbet',
     description: 'Prediction market for cricket',
 }
 
-const inter = Inter({ subsets: ["latin"] })
+const plex = IBM_Plex_Mono({
+    subsets: ["latin-ext"],
+    weight: ["100", "200", "300", "400", "500", "600", "700"],
+})
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
@@ -20,7 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 </head>
             */}
             <body
-                className={`${inter.className} antialiased bg-gradient-to-tr dark:from-black from-gray-100 to-background min-h-dvh grid grid-rows-[max-content_1fr]`}
+                className={`${plex.className} antialiased bg-gradient-to-tr dark:from-black from-gray-100 to-background min-h-dvh grid grid-rows-[max-content_1fr]`}
             >
                 <Providers>
                     <Header />
