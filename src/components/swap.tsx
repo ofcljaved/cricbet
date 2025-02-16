@@ -6,8 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { z } from "zod";
-import { useMediaQuery } from "@/hooks/use-media-query";
-import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
+import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 
 enum SwapType {
     Buy = "buy",
@@ -30,22 +29,21 @@ const swapSchema = z.string().refine(
 
 export const Swap = () => {
     const [open, setOpen] = useState(false)
-    const isDesktop = useMediaQuery("(min-width: 1024px)")
 
-    if (isDesktop) {
-        return <SwapTabs className="border border-input w-80 max-w-80 min-w-80 h-fit rounded-2xl"/>
-    }
     return (
-        <Drawer open={open} onOpenChange={setOpen}>
-            <div className="fixed bottom-16 border border-input w-full p-4">
-                <DrawerTrigger asChild>
-                    <Button className="w-full">Buy</Button>
-                </DrawerTrigger>
-            </div>
-            <DrawerContent>
-                <SwapTabs className="w-full h-fit mb-8 p-4"/>
-            </DrawerContent>
-        </Drawer>
+        <>
+            <SwapTabs className="hidden lg:block border border-input w-80 max-w-80 min-w-80 h-fit rounded-2xl" />
+            <Drawer open={open} onOpenChange={setOpen}>
+                <div className="lg:hidden fixed bottom-16 border border-input w-full p-4">
+                    <DrawerTrigger asChild>
+                        <Button className="w-full">Buy</Button>
+                    </DrawerTrigger>
+                </div>
+                <DrawerContent>
+                    <SwapTabs className="w-full h-fit mb-8 p-4" />
+                </DrawerContent>
+            </Drawer>
+        </>
     )
 }
 
